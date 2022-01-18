@@ -2,3 +2,23 @@
 /*  @ Import/write your custom styles here.
 /*  @ Styles from this file will override 'vendors.scss' and Fuse's base styles.
 /* ----------------------------------------------------------------------------------------------------- */
+
+@use "@angular/material" as mat;
+
+$my-primary: mat.define-palette(mat.$teal-palette, 500);
+$my-accent: mat.define-palette(mat.$deep-orange-palette, A200, A100, A400);
+
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme(
+    (
+        color: (
+            primary: $my-primary,
+            accent: $my-accent,
+            warn: $my-warn,
+        ),
+    )
+);
+
+@include mat.all-component-themes($my-theme);
